@@ -4,7 +4,7 @@
 # Hint: you need `programs.home-manager.enable = true;`
 # Hint: run `nix eval --impure --expr '(import <nixpkgs>{}).system'` to check current system for pkgs.system
 {
-    inputs,
+    # inputs,
     outputs,
     pkgs,
     lib,
@@ -12,9 +12,9 @@
     ...
 } @ args:
 let
+    inherit (pkgs) stdenv;
     env = {
         defaultbrowser = "firefox"; # TODO: actually hook this up right
-        isMac = (pkgs.system == "aarch64-darwin" || pkgs.system == "x86_64-darwin");
     };
 in
 {
@@ -33,7 +33,7 @@ in
     xdg.enable = true; # Tell programs to use ~/.config
     programs.home-manager.enable = true; # let home-manager manager itself
 
-    nixpkgs.overlays = import ./overlays { inherit inputs; };
+    nixpkgs.overlays = import ./overlays { };
 
     # TODO: Module each of these packages
     home.packages = with pkgs; [
@@ -50,7 +50,7 @@ in
 
     # TODO: Module defaultBrowser
     home.activation = {
-        defaultBrowser = lib.mkIf env.isMac (lib.hm.dag.entryAfter ["installPackages"] ''
+        defaultBrowser = lib.mkIf stdenv.isDarwin (lib.hm.dag.entryAfter ["installPackages"] ''
             run echo "Setting default browser to ${env.defaultbrowser}"
             # set default browser
             run ${pkgs.defaultbrowser}/bin/defaultbrowser ${env.defaultbrowser}

@@ -15,6 +15,7 @@
     outputs = {
         self,
         nixpkgs,
+        nixpkgs-stable,
         home-manager,
         stylix,
         ...
@@ -23,6 +24,7 @@
         inherit (self) outputs;
         system = "aarch64-darwin";
         pkgs = nixpkgs.legacyPackages.${system};
+        pkgs-stable = nixpkgs-stable.legacyPackages.${system};
 
         lib = import ./lib pkgs;
     in
@@ -42,7 +44,12 @@
                 ./home.nix
             ];
             # https://nixos.org/manual/nixpkgs/stable/#module-system-lib-evalModules-param-specialArgs
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = {
+                inherit
+                # inputs
+                pkgs-stable
+                ;
+            };
         };
     };
 }

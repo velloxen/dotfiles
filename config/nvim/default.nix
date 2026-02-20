@@ -46,6 +46,6 @@ in
             lazy-nvim
         ];
 
-        extraLuaConfig = builtins.readFile ./hm-init.init.lua;
+        initLua = builtins.readFile ./hm-init.init.lua;
     };
 }

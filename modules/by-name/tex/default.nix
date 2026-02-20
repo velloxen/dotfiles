@@ -1,4 +1,10 @@
-{ pkgs, lib, config, ... }:
+{
+    pkgs,
+    pkgs-stable,
+    lib,
+    config,
+    ...
+}:
 let
     cfg = config.programs.tex;
 in
@@ -10,7 +16,7 @@ in
             # lib.mkIf (!isMac) zathura
             skimpdf
             dbus
-            stable.texlive.combined.scheme-full # the actual texlive has a tendency to be unstable
+            pkgs-stable.texlive.combined.scheme-full # the actual texlive has a tendency to be unstable
         ];
     };
 }
