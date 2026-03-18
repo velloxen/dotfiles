@@ -60,6 +60,7 @@ in
     programs.git.enable = true;
     programs.tex.enable = true;
     programs.nh.enable = true;
+    programs.java.enable = true;
     services.dock.enable = true;
 
     imports = [

@@ -6,6 +6,7 @@
     imports = [
         # TODO: local keep-sorted/other linting/opinionated style
         ../by-name/git
+        ../by-name/java
         ../by-name/tex
         ../by-name/nh
         ../by-name/dock
