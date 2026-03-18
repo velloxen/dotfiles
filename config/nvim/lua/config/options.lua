@@ -9,7 +9,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true -- break by word
 
 -- provided by rust-analyzer.
-vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
+-- vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
