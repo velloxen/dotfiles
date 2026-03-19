@@ -1,9 +1,9 @@
 { ... }:
 {
-    imports = [
-        ./nvim
-        ./starship
-        ./wezterm
-        ./zsh
-    ];
+  imports = [
+    ./nvim
+    ./starship
+    ./wezterm
+    ./zsh
+  ];
 }

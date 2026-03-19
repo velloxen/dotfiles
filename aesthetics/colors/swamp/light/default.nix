@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
-{
-    config.stylix.enable = true;
-    config.stylix.base16Scheme = ./swamp-light.yaml;
-    config.stylix.polarity = "light";
+_: {
+  config.stylix.enable = true;
+  config.stylix.base16Scheme = ./swamp-light.yaml;
+  config.stylix.polarity = "light";
 
-    imports = [
-        ../neovim
-        ./starship
-    ];
+  imports = [
+    ../neovim
+    ./starship
+  ];
 }
