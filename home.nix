@@ -82,6 +82,9 @@ in
     ./aesthetics/eyecandy/fastfetch.nix
   ];
 
+  # IDK
+  gtk.gtk4.theme = null;
+
   # Module stylix things
   stylix.enable = true;
 
