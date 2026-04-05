@@ -8,10 +8,6 @@ vim.opt.expandtab = true -- insert spaces for <Tab>
 vim.opt.wrap = true
 vim.opt.linebreak = true -- break by word
 
-vim.g.vimtex_view_method = "zathura_simple"
-vim.g.vimtex_view_zathura_use_synctex = 0
-vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
-
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         --NVIM_ENTER=1
