@@ -14,7 +14,8 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       # lib.mkIf (!isMac) zathura
-      skimpdf
+      # skimpdf
+      zathura
       dbus
       pkgs-stable.texlive.combined.scheme-full # the actual texlive has a tendency to be unstable
     ];
