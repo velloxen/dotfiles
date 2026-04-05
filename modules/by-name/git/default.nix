@@ -9,8 +9,9 @@
     programs.git.settings = {
       user.name = "velloxen";
       user.email = "velloxen@gmail.com";
-      credential.helper = lib.mkIf (pkgs.system == "aarch64-darwin") "osxkeychain";
+      credential.helper = lib.mkIf (pkgs.stdenv.hostPlatform.system == "aarch64-darwin") "osxkeychain";
       init.defaultBranch = "main";
     };
+    programs.git.signing.format = null;
   };
 }
