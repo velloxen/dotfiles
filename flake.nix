@@ -28,13 +28,6 @@
       lib = import ./lib pkgs;
     in
     {
-      # homeManagerConfiguration is ultimately running
-      # nixpkgs.lib.evalModules {
-      #   modules = modules;
-      #   specialArgs = extraSpecialArgs;
-      # }
-      # well, with home-manager sprinkles all over that
-      # # https://nixos.org/manual/nixpkgs/stable/#module-system
       homeConfigurations."ben" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs lib;
 
@@ -50,5 +43,25 @@
             ;
         };
       };
+
+      devShells.${system}.default =
+        let
+          name = ".nix";
+        in
+        pkgs.mkShell {
+          inherit name;
+
+          packages = with pkgs; [
+            lua-language-server
+            nil
+          ];
+
+          shellHook = /* bash */ ''
+            echo "Entering ${name} devenv"
+            echo "Type \`exit\` to return"
+            trap "echo 'Exiting ${name} devenv'" EXIT
+            exec zsh
+          '';
+        };
     };
 }
