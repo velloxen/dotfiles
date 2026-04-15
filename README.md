@@ -27,6 +27,18 @@ e.g., to add some python programs.
 `overlays/default.nix` handles some common overlays --- extensions/modifications
 to `nixpkgs`, including to `lib` and `pkgs`.
 
+### `flake.nix`
+
+```
+# homeManagerConfiguration is ultimately running
+# nixpkgs.lib.evalModules {
+#   modules = modules;
+#   specialArgs = extraSpecialArgs;
+# }
+# well, with home-manager sprinkles all over that
+# # https://nixos.org/manual/nixpkgs/stable/#module-system
+```
+
 ## Colors
 
 ### Stylix
@@ -233,6 +245,7 @@ programs.wezterm.extraConfig = builtins.readFile hm-init.wezterm.lua;
 As a standard, I prepend these configs with `hm-init.`.
 
 ## TODO
+
 - make usre nvim docs are downloaded?
 - make `./config/nvim/lua/config/lazy.lua` downloading LazyVim more Nix-like
 - appropriate modules across hosts and user profiles

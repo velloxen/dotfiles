@@ -9,6 +9,7 @@ let
       markdown
       markdown_inline
       nix
+      python
       rust
       toml
       yaml
@@ -49,5 +50,8 @@ in
     ];
 
     initLua = builtins.readFile ./hm-init.init.lua;
+
+    withRuby = false;
+    withPython3 = false;
   };
 }

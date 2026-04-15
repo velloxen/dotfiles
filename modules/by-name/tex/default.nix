@@ -13,7 +13,6 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lib.mkIf (!isMac) zathura
       # skimpdf # TODO: doesn't work, need HomeBrew
       # zathura
       dbus
