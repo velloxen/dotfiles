@@ -1,7 +1,7 @@
 return {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.nix" },
+  { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.nix" },
 
-    --- Optionals
-    { "stevearc/conform.nvim" },
-    { "mfussenegger/nvim-lint" },
+  --- Optionals
+  { "stevearc/conform.nvim" },
+  { "mfussenegger/nvim-lint" },
 }

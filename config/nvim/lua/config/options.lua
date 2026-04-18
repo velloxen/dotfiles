@@ -9,8 +9,8 @@ vim.opt.wrap = true
 vim.opt.linebreak = true -- break by word
 
 vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        --NVIM_ENTER=1
-        vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MQ==\007")]])
-    end,
+  callback = function()
+    --NVIM_ENTER=1
+    vim.cmd([[call chansend(v:stderr, "\033]1337;SetUserVar=NVIM_ENTER=MQ==\007")]])
+  end,
 })
