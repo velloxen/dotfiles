@@ -45,6 +45,7 @@
       };
 
       devShells.${system}.default =
+        # TODO: this should probably be a profile or smthn so I can pull up Nix devenv anywhere
         let
           name = ".nix";
         in
