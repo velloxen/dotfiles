@@ -19,7 +19,7 @@ return {
           scratch_repl = true,
           repl_definition = {
             python = {
-              command = { "ipython" },
+              command = { "python3" },
               format = require("iron.fts.common").bracketed_paste_python,
             },
           },
