@@ -21,6 +21,7 @@ return {
             python = {
               command = { "python3" },
               format = require("iron.fts.common").bracketed_paste_python,
+              env = { PYTHON_BASIC_REPL = "1" }, -- required for python3.13+
             },
           },
           repl_open_cmd = require("iron.view").split.vertical.botright(40),
