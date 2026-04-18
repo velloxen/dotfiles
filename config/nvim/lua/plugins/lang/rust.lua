@@ -9,10 +9,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         -- TODO: can this be just a dictionary, not a functions?
-        opts = function(_, opts)
-            vim.list_extend(opts.ensure_installed, {
-                "rust",
-            })
-        end,
+        opts = { ensure_installed = { "rust" } },
     },
 }
