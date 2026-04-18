@@ -31,6 +31,8 @@ return {
           visual_send = "ctr",
         },
       })
+
+      vim.keymap.set("n", "]x", "ctrih/^# %%<CR><CR>", { desc = "Send cell to IronRepl and move to next cell" })
     end,
   },
 
