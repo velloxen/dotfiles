@@ -14,18 +14,15 @@ return {
 
       iron.setup({
         config = {
+          should_map_plug = false,
           -- Whether a repl should be discarded or not
           scratch_repl = true,
           repl_definition = {
             python = {
-              -- Can be a table or a function that
-              -- returns a table (see below)
               command = { "ipython" },
               format = require("iron.fts.common").bracketed_paste_python,
             },
           },
-          -- How the repl window will be displayed
-          -- See below for more information
           repl_open_cmd = require("iron.view").bottom(40),
         },
         keymaps = {
