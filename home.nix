@@ -44,7 +44,6 @@ in
     # electricsheep
     fzf
     lazygit
-    luarocks # Lua
     mkvtoolnix
     qbittorrent
     subs2cia

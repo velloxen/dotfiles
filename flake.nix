@@ -52,8 +52,12 @@
           inherit name;
 
           packages = with pkgs; [
-            lua-language-server
             nil
+            # (lua5_4.withPackages (
+            #   ps: with ps; [
+            #     luacheck
+            #   ]
+            # ))
           ];
 
           shellHook = /* bash */ ''
