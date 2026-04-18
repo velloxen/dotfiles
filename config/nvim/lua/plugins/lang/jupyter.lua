@@ -17,10 +17,10 @@ return {
           -- Whether a repl should be discarded or not
           scratch_repl = true,
           repl_definition = {
-            sh = {
+            python = {
               -- Can be a table or a function that
               -- returns a table (see below)
-              command = { "zsh" },
+              command = { "ipython" },
             },
           },
           -- How the repl window will be displayed
