@@ -1,10 +1,3 @@
-local function tobj(to)
-  if to.dependencies == nil then
-    to.dependencies = {}
-  end
-  table.insert(to.dependencies, "kana/vim-textobj-user")
-end
-
 return {
   -- dependencies = { "plugins.lang.python" },
   {
@@ -44,6 +37,6 @@ return {
   }, -- May need GCBallesteros/jupytext.vim instead
 
   -- Neovim Text Objects
-  tobj({ "kana/vim-textobj-line" }), -- il/al current line
-  tobj({ "GCBallesteros/vim-textobj-hydrogen" }), -- ih/ah [hydrogen style](https://github.com/nteract/hydrogen) code cells `#%%`
+  { "kana/vim-textobj-user" },
+  { "GCBallesteros/vim-textobj-hydrogen", dependencies = { "kana/vim-textobj-user" } }, -- ih/ah [hydrogen style](https://github.com/nteract/hydrogen) code cells `#%%`
 }
