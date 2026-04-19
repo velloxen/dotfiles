@@ -27,12 +27,12 @@ return {
           repl_open_cmd = require("iron.view").split.vertical.botright(40),
         },
         keymaps = {
-          send_motion = "ctr",
-          visual_send = "ctr",
+          send_motion = "<space>rc",
+          visual_send = "<space>rc",
         },
       })
 
-      vim.keymap.set("n", "]x", "ctrih/^# %%<CR><CR>", { desc = "Send cell to IronRepl and move to next cell" })
+      vim.keymap.set("n", "]x", "<space>rcih/^# %%<CR><CR>", { desc = "Send cell to IronRepl and move to next cell" })
     end,
   },
 
