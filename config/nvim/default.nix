@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   linterLanguages =
     packages: with packages; [
@@ -33,11 +33,13 @@ in
   # https://github.com/LazyVim/LazyVim/discussions/1972#discussion-5826338
   programs.neovim = {
     enable = true;
+
     extraPackages = with pkgs; [
       lua-language-server
       stylua
       ripgrep
       imagemagick # image.nvim
+      lua
     ];
 
     extraLuaPackages =
@@ -51,7 +53,7 @@ in
 
     initLua = builtins.readFile ./hm-init.init.lua;
 
+    withPython3 = true;
     withRuby = false;
-    withPython3 = false;
   };
 }

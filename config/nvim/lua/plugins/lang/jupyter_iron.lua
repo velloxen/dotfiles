@@ -2,8 +2,9 @@ return {
   -- dependencies = { "plugins.lang.python" },
   {
     "hkupty/iron.nvim",
+    enabled = false,
     config = function()
-      local iron = require("iron.core")
+      local iron = require("iron.core") --
 
       iron.setup({
         config = {
@@ -12,31 +13,39 @@ return {
           scratch_repl = true,
           repl_definition = {
             python = {
-              command = { "python3" },
+              command = { "ipython" },
               format = require("iron.fts.common").bracketed_paste_python,
+              block_dividers = { "# %%", "#%%" },
               env = { PYTHON_BASIC_REPL = "1" }, -- required for python3.13+
             },
           },
-          repl_open_cmd = require("iron.view").split.vertical.botright(40),
+          repl_open_cmd = require("iron.view").split.vertical.botright(80),
         },
         keymaps = {
           send_motion = "<space>rc",
           visual_send = "<space>rc",
+          send_code_block_and_move = "]x",
         },
       })
-
-      vim.keymap.set("n", "]x", "<space>rcih/^# %%<CR><CR>", { desc = "Send cell to IronRepl and move to next cell" })
     end,
   },
 
   {
     "goerz/jupytext.nvim",
+    enabled = false,
     opts = {
       format = "py:hydrogen",
     },
-  }, -- May need GCBallesteros/jupytext.vim instead
+  },
 
   -- Neovim Text Objects
-  { "kana/vim-textobj-user" },
-  { "GCBallesteros/vim-textobj-hydrogen", dependencies = { "kana/vim-textobj-user" } }, -- ih/ah [hydrogen style](https://github.com/nteract/hydrogen) code cells `#%%`
+  {
+    "kana/vim-textobj-user",
+    enabled = false,
+  },
+  {
+    "GCBallesteros/vim-textobj-hydrogen",
+    enabled = false,
+    dependencies = { "kana/vim-textobj-user" },
+  }, -- ih/ah [hydrogen style](https://github.com/nteract/hydrogen) code cells `#%%`
 }
