@@ -13,5 +13,6 @@
     ../by-name/statix
     ../by-name/dock
     ../by-name/inkscape
+    ../by-name/vscode
   ];
 }

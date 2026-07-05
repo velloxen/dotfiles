@@ -65,6 +65,7 @@ in
   programs.tex.enable = true;
   programs.nh.enable = true;
   programs.java.enable = true;
+  programs.vscode.enable = false;
   services.dock.enable = true;
 
   # TODO: get a Nix devenv going
@@ -80,9 +81,6 @@ in
     ./aesthetics/eyecandy/colorscripts.nix
     ./aesthetics/eyecandy/fastfetch.nix
   ];
-
-  # IDK
-  gtk.gtk4.theme = null;
 
   # Module stylix things
   stylix.enable = true;

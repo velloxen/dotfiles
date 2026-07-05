@@ -47,6 +47,11 @@ in
         magick # image.nvim
       ];
 
+    extraPython3Packages =
+      ps: with ps; [
+        pynvim
+      ];
+
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
     ];
