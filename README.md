@@ -246,6 +246,11 @@ As a standard, I prepend these configs with `hm-init.`.
 
 ## TODO
 
+- auto-check for `nh home switch .` before lazygit commits
+- devenv
+    - `.nix`
+    - rust
+    - python
 - make usre nvim docs are downloaded?
 - make `./config/nvim/lua/config/lazy.lua` downloading LazyVim more Nix-like
 - appropriate modules across hosts and user profiles
