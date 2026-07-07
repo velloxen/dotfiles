@@ -8,35 +8,35 @@ config.check_for_updates = false
 
 ------ Appearance -----
 local padding = {
-	left = 15,
-	right = 15,
-	top = 15,
-	bottom = 15,
+  left = 15,
+  right = 15,
+  top = 15,
+  bottom = 15,
 }
 config.window_padding = padding
 
 -- Handle NeoVim padding
 wezterm.on("user-var-changed", function(window, pane, name, value)
-	if name == "NVIM_ENTER" then
-		local overrides = window:get_config_overrides() or {}
-		if value == "1" then
-			overrides.window_padding = {
-				left = 0,
-				right = 0,
-				top = 0,
-				bottom = 0,
-			}
-		else
-			overrides.window_padding = padding
-		end
-		window:set_config_overrides(overrides)
-	end
+  if name == "NVIM_ENTER" then
+    local overrides = window:get_config_overrides() or {}
+    if value == "1" then
+      overrides.window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+      }
+    else
+      overrides.window_padding = padding
+    end
+    window:set_config_overrides(overrides)
+  end
 end)
 
 config.window_background_opacity = 0.9
 config.inactive_pane_hsb = {
-	saturation = 1.0,
-	brightness = 0.8,
+  saturation = 1.0,
+  brightness = 0.8,
 }
 
 config.default_cursor_style = "SteadyUnderline"
@@ -54,14 +54,14 @@ config.cell_width = 1
 config.line_height = 1.15
 config.dpi = 96.0
 config.font = wezterm.font_with_fallback({
-	"0xProto Nerd Font Propo",
-	"Material Design Icons",
+  "0xProto Nerd Font Propo",
+  "Material Design Icons",
 })
 config.font_rules = {
-	{
-		italic = true,
-		font = wezterm.font("0xProto Nerd Font Propo", { italic = true }),
-	},
+  {
+    italic = true,
+    font = wezterm.font("0xProto Nerd Font Propo", { italic = true }),
+  },
 }
 config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" } -- font shaping; only when font_shaper = "Harfbuzz"
 
