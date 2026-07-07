@@ -61,12 +61,16 @@
             # ))
           ];
 
-          shellHook = /* bash */ ''
-            echo "Entering ${name} devenv"
-            echo "Type \`exit\` to return"
-            trap "echo 'Exiting ${name} devenv'" EXIT
-            exec zsh
-          '';
+          shellHook =
+            let
+              name-color = "\\e[38;5;5m";
+            in
+            /* bash */ ''
+              echo -e "Entering ${name-color}${name}\e[m devenv";
+              echo -e "Type \e[7mexit\e[m to return";
+              trap "echo 'Exiting ${name} devenv'" EXIT;
+              exec zsh
+            '';
         };
     };
 }
